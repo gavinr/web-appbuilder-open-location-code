@@ -15,3 +15,9 @@
 .openLocationCode .code {
   font-family: monospace;
 }
+
+.openLocationCode .clickOnMapInstructions {
+  font-style: italic;
+  color: darkgray;
+  margin-top: 5px;
+}

@@ -11,6 +11,6 @@
     "hasStyle": true,
     "hasLocale": true,
     "hasUIFile": true,
-    "hasSettingPage": false
+    "hasSettingPage": true
   }
 }

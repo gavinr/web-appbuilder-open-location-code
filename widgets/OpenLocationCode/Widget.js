@@ -18,6 +18,7 @@ function(declare, BaseWidget, webMercatorUtils, OpenLocationCode, domClass) {
         // Setup the mouse-move event:
         this.mouseMoveEvent = this.map.on('mouse-move', function(evt) {
           // convert web mercator to lat/lon for conversion to OpenLocationCode:
+          // https://developers.arcgis.com/javascript/3/jsapi/esri.geometry.webmercatorutils-amd.html#xytolnglat
           var lngLatArray = webMercatorUtils.xyToLngLat(evt.mapPoint.x, evt.mapPoint.y);
   
           // convert lat/lng to OpenLocationCode
@@ -32,6 +33,7 @@ function(declare, BaseWidget, webMercatorUtils, OpenLocationCode, domClass) {
         // Setup the mouse-click event:
         this.mouseClickEvent = this.map.on('click', function(evt) {
           // convert web mercator to lat/lon for conversion to OpenLocationCode:
+          // https://developers.arcgis.com/javascript/3/jsapi/esri.geometry.webmercatorutils-amd.html#xytolnglat
           var lngLatArray = webMercatorUtils.xyToLngLat(evt.mapPoint.x, evt.mapPoint.y);
   
           // convert lat/lng to OpenLocationCode
@@ -41,7 +43,10 @@ function(declare, BaseWidget, webMercatorUtils, OpenLocationCode, domClass) {
           domClass.remove(this.clickedCurrentLocationWrapper, 'hidden');
           this.clickedCurrentLocation.innerHTML = code;
         }.bind(this));
+
+        domClass.remove(this.clickOnMapInstructions, 'hidden');
       }
+
     },
 
     onClose: function() {
