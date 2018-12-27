@@ -12,5 +12,9 @@
     "hasLocale": true,
     "hasUIFile": true,
     "hasSettingPage": true
-  }
+  },
+  "featureActions": [{
+    "name": "ShowPlusCode",
+    "uri": "ShowPlusCodeFeatureAction"
+  }]
 }

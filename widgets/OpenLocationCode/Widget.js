@@ -1,10 +1,9 @@
 define(['dojo/_base/declare',
   'jimu/BaseWidget',
-  'esri/geometry/webMercatorUtils',
   './openlocationcode',
   'dojo/dom-class'
 ],
-function(declare, BaseWidget, webMercatorUtils, OpenLocationCode, domClass) {
+function(declare, BaseWidget, OpenLocationCode, domClass) {
   var clazz = declare([BaseWidget], {
     baseClass: 'openLocationCode',
 
@@ -17,12 +16,7 @@ function(declare, BaseWidget, webMercatorUtils, OpenLocationCode, domClass) {
       if(this.config.showHover) {
         // Setup the mouse-move event:
         this.mouseMoveEvent = this.map.on('mouse-move', function(evt) {
-          // convert web mercator to lat/lon for conversion to OpenLocationCode:
-          // https://developers.arcgis.com/javascript/3/jsapi/esri.geometry.webmercatorutils-amd.html#xytolnglat
-          var lngLatArray = webMercatorUtils.xyToLngLat(evt.mapPoint.x, evt.mapPoint.y);
-  
-          // convert lat/lng to OpenLocationCode
-          var code = OpenLocationCode.encode(lngLatArray[1], lngLatArray[0]);
+          var code = OpenLocationCode.encode(evt.mapPoint.getLatitude(), evt.mapPoint.getLongitude());
   
           // Update the widget to show the new code:
           this.currentLocationWrapper.innerHTML = code;
@@ -32,16 +26,7 @@ function(declare, BaseWidget, webMercatorUtils, OpenLocationCode, domClass) {
       if(this.config.showClick) {
         // Setup the mouse-click event:
         this.mouseClickEvent = this.map.on('click', function(evt) {
-          // convert web mercator to lat/lon for conversion to OpenLocationCode:
-          // https://developers.arcgis.com/javascript/3/jsapi/esri.geometry.webmercatorutils-amd.html#xytolnglat
-          var lngLatArray = webMercatorUtils.xyToLngLat(evt.mapPoint.x, evt.mapPoint.y);
-  
-          // convert lat/lng to OpenLocationCode
-          var code = OpenLocationCode.encode(lngLatArray[1], lngLatArray[0]);
-  
-          // Update the widget to show the new code:
-          domClass.remove(this.clickedCurrentLocationWrapper, 'hidden');
-          this.clickedCurrentLocation.innerHTML = code;
+          this.showSelectedPlusCode(evt.mapPoint);
         }.bind(this));
 
         domClass.remove(this.clickOnMapInstructions, 'hidden');
@@ -59,6 +44,15 @@ function(declare, BaseWidget, webMercatorUtils, OpenLocationCode, domClass) {
       if(this.mouseClickEvent) {
         this.mouseClickEvent.remove();
       }
+    },
+
+    showSelectedPlusCode: function(point) {
+      // convert lat/lng to OpenLocationCode
+      var code = OpenLocationCode.encode(point.getLatitude(), point.getLongitude());
+  
+      // Update the widget to show the new code:
+      domClass.remove(this.clickedCurrentLocationWrapper, 'hidden');
+      this.clickedCurrentLocation.innerHTML = code;
     }
   });
   return clazz;
