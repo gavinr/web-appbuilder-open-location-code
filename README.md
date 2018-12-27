@@ -1,3 +1,3 @@
 # Web AppBuilder - Open Location Code
 
-Open Location Code (Plus.code) widget for ArcGIS Web AppBuilder.
+View Open Location Codes (aka 'plus codes') in Web AppBuilder
