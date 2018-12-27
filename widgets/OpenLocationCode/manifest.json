@@ -1,0 +1,16 @@
+{
+  "name": "OpenLocationCode",
+  "platform": "HTML",
+  "version": "2.10",
+  "wabVersion": "2.10",
+  "author": "Gavin Rehkemper",
+  "description": "View and location Open Location Codes (aka Plus.Codes) in Web AppBuilder (https://plus.codes/)",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {
+    "hasConfig": false,
+    "hasStyle": false,
+    "hasLocale": false,
+    "hasUIFile": true,
+    "hasSettingPage": false
+  }
+}
