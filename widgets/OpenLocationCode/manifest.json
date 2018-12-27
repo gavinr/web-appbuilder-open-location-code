@@ -8,8 +8,8 @@
   "license": "http://www.apache.org/licenses/LICENSE-2.0",
   "properties": {
     "hasConfig": false,
-    "hasStyle": false,
-    "hasLocale": false,
+    "hasStyle": true,
+    "hasLocale": true,
     "hasUIFile": true,
     "hasSettingPage": false
   }

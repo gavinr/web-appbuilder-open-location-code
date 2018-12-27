@@ -1,3 +1,13 @@
 <div>
-  <div data-dojo-attach-point="currentLocationWrapper"></div>
+  <div class="current">
+    
+    <!-- Mouse hover area: -->
+    <div data-dojo-attach-point="currentLocationWrapper" class="currentLocationWrapper code"></div>
+
+    <!-- Mouse Click area: -->
+    <div class="clickedCurrentLocationWrapper hidden" data-dojo-attach-point="clickedCurrentLocationWrapper">
+      ${nls.clickedPlusCode}: <span data-dojo-attach-point="clickedCurrentLocation" class="code"></span>
+    </div>
+
+  </div>
 </div>
