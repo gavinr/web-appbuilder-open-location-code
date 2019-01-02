@@ -1,0 +1,31 @@
+.openLocationCode {
+  font-size: 14px;
+}
+
+.openLocationCode .hidden {
+  display: none;
+}
+
+.openLocationCode .currentLocationWrapper {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.openLocationCode .code {
+  font-family: monospace;
+}
+
+.openLocationCode .clickOnMapInstructions {
+  font-style: italic;
+  color: darkgray;
+  margin-top: 5px;
+}
+
+.openLocationCode .moreInfo {
+  font-style: italic;
+  font-size: 12px;
+  text-align: right;
+  color: darkgray;
+  margin-top: 50px;
+}

@@ -1,0 +1,30 @@
+<div>
+  <div class="current">
+    <!-- Mouse hover area: -->
+    <div
+      data-dojo-attach-point="currentLocationWrapper"
+      class="currentLocationWrapper code"
+    ></div>
+
+    <!-- Mouse Click area: -->
+    <div
+      class="clickedCurrentLocationWrapper hidden"
+      data-dojo-attach-point="clickedCurrentLocationWrapper"
+    >
+      ${nls.clickedPlusCode}:
+      <span data-dojo-attach-point="clickedCurrentLocation" class="code"></span>
+    </div>
+    <div
+      class="clickOnMapInstructions hidden"
+      data-dojo-attach-point="clickOnMapInstructions"
+    >
+      ${nls.clickOnMapInstructions}
+    </div>
+  </div>
+  <div class="moreInfo">
+    ${nls.moreInfoLabel}
+    <a href="https://github.com/google/open-location-code" target="_blank"
+      >${nls.moreInfoLinkText}</a
+    >
+  </div>
+</div>
