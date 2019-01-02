@@ -21,3 +21,11 @@
   color: darkgray;
   margin-top: 5px;
 }
+
+.openLocationCode .moreInfo {
+  font-style: italic;
+  font-size: 12px;
+  text-align: right;
+  color: darkgray;
+  margin-top: 50px;
+}
